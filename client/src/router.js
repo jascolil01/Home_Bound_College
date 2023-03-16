@@ -1,0 +1,6 @@
+import HomePage from './components/HomePage.vue'
+import ViewStudents from './components/ViewStudents.vue'
+import StudentsDetails from './components/StudentsDetails'
+import ReportCard from './components/ReportCard'
+import MakeCourse from './components/MakeCourse'
+import AddStudents from './components/AddStudents'
