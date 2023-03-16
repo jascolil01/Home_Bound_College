@@ -1,6 +1,8 @@
 <template>
   <div classname="student-grid">
     <h3>{{ students.name }}</h3>
+    <h3>{{ students.id }}</h3>
+    <button @click="seeStudent(students.id)">Student</button>
   </div>
 </template>
 
@@ -16,12 +18,12 @@ export default {
   // data: () => ({
   //   students: []
   // }),
-  mounted() {}
-  // methods: {
-  //   async getStudents() {
-  //     const res = await axios.get(`${BASE_URL}students`)
-  //     res.data
-  //   }
+  mounted() {},
+  methods: {
+    seeStudent(studentId) {
+      this.$router.push(`/students/${studentId}`)
+    }
+  }
 }
 </script>
 
