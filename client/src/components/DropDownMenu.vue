@@ -1,4 +1,8 @@
-<template></template>
+<template>
+  <select>
+    <option v-for="classe in classes" :key="classe.id">{{ classe.course_code }} || {{ classe.name }}</option>
+  </select>
+</template>
 
 <script>
 import { BASE_URL } from '@/globals';
@@ -8,6 +12,9 @@ export default {
   data: () => ({
     classes: {}
   }),
+  mounted() {
+    this.getCourse()
+  },
   methods: {
     async getCourse() {
       const res = await axios.get(`${BASE_URL}courses/`)
