@@ -43,6 +43,8 @@ export default {
       e.preventDefault()
       const data = { name: this.name, email: this.email }
       await axios.post(`${BASE_URL}students/create`, data)
+      this.name = '',
+        this.email = ''
     }
   }
 }
