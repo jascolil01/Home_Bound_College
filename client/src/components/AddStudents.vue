@@ -8,7 +8,11 @@
       <h2>Enter student name</h2>
       <input :value="name" @input="handleChangeName">
     </div>
-    <button type="submit">click me to add</button>
+    <DropDownMenu />
+    <div>
+      <button type="submit">click me to add</button>
+    </div>
+
   </form>
 </template>
 
@@ -17,11 +21,12 @@
 
 import axios from 'axios';
 import { BASE_URL } from '../globals'
+import DropDownMenu from './DropDownMenu.vue';
 
 export default {
   name: 'AddStudents',
   components: {
-
+    DropDownMenu
   },
   data: () => ({
     name: '',
