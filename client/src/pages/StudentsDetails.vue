@@ -4,10 +4,10 @@
 
 <script>
 export default {
-  name: 'StudentDetails',
+  name: 'StudentsDetails',
   components: {},
   data: () => ({}),
-  mounted() {},
+  mounted() { },
   methods: {}
 }
 </script>
