@@ -9,5 +9,26 @@
     "nodemon": "^2.0.21",
     "pg": "^8.10.0",
     "sequelize": "^6.29.3"
-  }
+  },
+  "name": "home_bound_college",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jascolil01/Home_Bound_College.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jascolil01/Home_Bound_College/issues"
+  },
+  "homepage": "https://github.com/jascolil01/Home_Bound_College#readme"
 }
