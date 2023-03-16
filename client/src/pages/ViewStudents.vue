@@ -1,8 +1,13 @@
 <template>
-  <div classname="student-grid" v-for="student in students" :key="student.id" @click="seeStudent(students.id)">
+  <div
+    classname="student-grid"
+    v-for="student in students"
+    :key="student.id"
+    @click="seeStudent(student.id)"
+  >
     <h3>{{ student.name }}</h3>
-    <h3>{{ student.id }}</h3>
-    <button @click="seeStudent(students.id)">Student</button>
+    <h3>{{ student.email }}</h3>
+    <button @click="seeStudent(student.id)">Student</button>
   </div>
 </template>
 
@@ -13,9 +18,7 @@ import axios from 'axios'
 export default {
   name: 'ViewStudents',
   components: {},
-  // props: {
-  //   students: {}
-  // },
+
   data: () => ({
     students: []
   }),
