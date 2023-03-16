@@ -1,8 +1,7 @@
 <template>
-  <div classname="student-grid">
+  <div classname="student-grid" @click="seeStudent(students.id)">
     <h3>{{ students.name }}</h3>
-    <h3>{{ students.id }}</h3>
-    <button @click="seeStudent(students.id)">Student</button>
+    <h3>{{ students.email }}</h3>
   </div>
 </template>
 
