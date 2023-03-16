@@ -21,6 +21,18 @@ const GetAllCoursesByStudentId = async (req, res) => {
 	}
 };
 
+const GetAllStudentsByCourseId = async (req, res) => {
+    try {
+        const courseId = parseInt(req.params.id);
+		const students = await Student_enroll.findAll({
+            where: { course_id: courseId }
+		});
+		res.send(students);
+	} catch (err) {
+        throw err;
+	}
+};
+
 const EnrollStudentToCourse = async (req, res) => {
     try {
         const { student_id, course_id, grade } = req.body;
@@ -41,4 +53,5 @@ module.exports = {
 	GetAll,
 	GetAllCoursesByStudentId,
 	EnrollStudentToCourse,
+    GetAllStudentsByCourseId
 };
