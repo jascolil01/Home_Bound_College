@@ -5,12 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Course extends Model {
     static associate(models) {
-      Course.belongsTo(models.User, {
-        foreignKey: 'user_id',
-        as: 'user',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      })
+      // Course.belongsTo(models.student, {
+      //   foreignKey: 'user_id',
+      //   as: 'user',
+      //   onDelete: 'CASCADE',
+      //   onUpdate: 'CASCADE'
+      // })
       // Course.belongsTo(models.Meal, {
       //   foreignKey: 'meal_id',
       //   as: 'courses',
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Course',
-    modelName: 'courses',
+    tableName: 'courses',
   });
   return Course;
 };
