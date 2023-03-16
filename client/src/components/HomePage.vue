@@ -1,36 +1,15 @@
 <template>
-  <div>
-
-  </div>
-
-
+  <div></div>
 </template>
 
-
 <script>
-
-
-
 export default {
   name: 'HomePage',
-  components: {
-
-  },
-  data: () => ({
-
-  }),
-  mounted () {
-
-  },
-  methods: {
-    
-  }
+  components: {},
+  data: () => ({}),
+  mounted() {},
+  methods: {}
 }
-
 </script>
 
-
-<style>
-
-
-</style>
+<style></style>
