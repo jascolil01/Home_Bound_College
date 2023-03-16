@@ -14,11 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Grade.init({
-    score: DataTypes.STRING,
-    letter: DataTypes.STRING
+    score: {
+      type: DataTypes.STRING,
+      allowNull: false
+     },
+    letter: {
+      type: DataTypes.STRING,
+      allowNull: false
+     },
   }, {
     sequelize,
     modelName: 'Grade',
+    modelName: 'grades',
   });
   return Grade;
 };

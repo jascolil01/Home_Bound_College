@@ -10,9 +10,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       score: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       letter: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
