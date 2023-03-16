@@ -8,7 +8,7 @@ router.post('/create',
   controller.CreateStudent)
 router.get('/', controller.GetStudent)
 router.get('/search/:name', controller.getStudentByName)
-router.get('/type/:Course', controller.getStudentByCourse)
+// router.get('/type/:Course', controller.getStudentByCourse)
 router.get('/:id', controller.getStudentById)
 
 router.delete('/:id',

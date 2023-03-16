@@ -6,7 +6,6 @@ const CreateStudent = async (req,res) => {
     let studentBody = {
         ...req.body
     }
-    console.log(studentBody);
     const student = await Student.create(studentBody)
     res.send(student)
   } catch (error) {
@@ -24,21 +23,6 @@ const getStudentByName = async (req, res) => {
       return res.status(200).json({ student })
     }
     return res.status(404).send('Students with the specified Name does not exists')
-  } catch (error) {
-    return res.status(500).send(error.message)
-  }
-}
-
-const getStudentByCourse = async (req, res) => {
-  try {
-    const course = req.params.course
-    const student = await Student.findAll({
-      where: {course: course}
-    })
-    if (student) {
-      return res.status(200).json({ student })
-    }
-    return res.status(404).send('Students with the specified Course does not exists')
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -90,7 +74,6 @@ const EditStudent = async (req, res) => {
 module.exports = {
   getStudentById,
   getStudentByName,
-  getStudentByCourse,
   CreateStudent,
   GetStudent,
   DeleteStudent,

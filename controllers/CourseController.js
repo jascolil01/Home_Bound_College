@@ -6,7 +6,6 @@ const CreateCourse = async (req,res) => {
     let courseBody = {
         ...req.body
     }
-    console.log(courseBody);
     const course = await Course.create(courseBody)
     res.send(course)
   } catch (error) {
@@ -24,21 +23,6 @@ const getCourseByName = async (req, res) => {
       return res.status(200).json({ course })
     }
     return res.status(404).send('Courses with the specified Name does not exists')
-  } catch (error) {
-    return res.status(500).send(error.message)
-  }
-}
-
-const getCourseByStudent = async (req, res) => {
-  try {
-    const student = req.params.student
-    const course = await Course.findAll({
-      where: {student: student}
-    })
-    if (course) {
-      return res.status(200).json({ course })
-    }
-    return res.status(404).send('Courses with the specified Student does not exists')
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -90,7 +74,6 @@ const EditCourse = async (req, res) => {
 module.exports = {
   getCourseById,
   getCourseByName,
-  getCourseByStudent,
   CreateCourse,
   GetCourse,
   DeleteCourse,

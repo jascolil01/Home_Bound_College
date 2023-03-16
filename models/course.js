@@ -5,18 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Course extends Model {
     static associate(models) {
-      // Course.belongsTo(models.student, {
-      //   foreignKey: 'user_id',
-      //   as: 'user',
-      //   onDelete: 'CASCADE',
-      //   onUpdate: 'CASCADE'
-      // })
-      // Course.belongsTo(models.Meal, {
-      //   foreignKey: 'meal_id',
-      //   as: 'courses',
-      //   onDelete: 'CASCADE',
-      //   onUpdate: 'CASCADE'
-      // })
+      Course.belongsToMany(models.Student, {
+        through: 'student_enroll',
+        as: 'student',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
     }
   }
   Course.init({
