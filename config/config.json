@@ -7,15 +7,15 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "Alejandro",
-    "password": "Colombia123",
+    "username": "josh",
+    "password": "1234",
     "database": "Home_Bound_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "Alejandro",
-    "password": "Colombia123",
+    "username": "josh",
+    "password": "1234",
     "database": "Home_Bound_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
