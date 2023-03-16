@@ -10,16 +10,26 @@ module.exports = (sequelize, DataTypes) => {
   Student_enroll.init({
     student_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
-     },
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'students',
+        key: 'id'
+      }
+    },
     course_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
-     },
-     grade: {
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'courses',
+        key: 'id'
+      }
+    },
+    grade: {
       type: DataTypes.INTEGER,
       allowNull: false
-     },
+    },
   }, {
     sequelize,
     modelName: 'Student_enroll',
