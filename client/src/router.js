@@ -1,5 +1,6 @@
-import HomePage from './components/HomePage.vue'
-import ViewStudents from './components/ViewStudents.vue'
+import { createWebHistory, createRouter } from "vue-router"
+import HomePage from './pages/HomePage.vue'
+import ViewStudents from './pages/ViewStudents.vue'
 import StudentsDetails from './components/StudentsDetails'
 import ReportCard from './components/ReportCard'
 import MakeCourse from './components/MakeCourse'
