@@ -3,7 +3,7 @@
     <h1>Hello, Weclome to Home Bound College</h1>
     <h2>Here, you can see what class our students are enrolled in and what grades they have!</h2>
     <ViewStudents v-for="student in students" :key="student.id" :students="student" />
-    <Creation />
+    <CreationPage />
   </div>
 </template>
 
@@ -13,13 +13,13 @@
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import ViewStudents from './ViewStudents.vue';
-import Creation from './Creation.vue';
+import CreationPage from './CreationPage.vue';
 
 export default {
   name: 'HomePage',
   components: {
     ViewStudents,
-    Creation
+    CreationPage
   },
   data: () => ({
     students: {}
