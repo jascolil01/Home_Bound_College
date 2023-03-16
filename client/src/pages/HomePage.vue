@@ -20,7 +20,7 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import ViewStudents from './ViewStudents.vue'
 import CreationPage from './CreationPage.vue'
-import NavBar from '../components/NavBar.vue'
+import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'HomePage',
   components: {
