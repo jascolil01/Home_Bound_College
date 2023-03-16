@@ -13,7 +13,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      grade: {
+      course_code: {
         allowNull: false,
         type: Sequelize.STRING
       },
