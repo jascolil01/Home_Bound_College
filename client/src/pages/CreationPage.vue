@@ -13,7 +13,7 @@ import MakeCourse from '@/components/MakeCourse.vue';
 import AddStudents from '../components/AddStudents.vue';
 
 export default {
-  name: 'Creation',
+  name: 'CreationPage',
   components: {
     MakeCourse,
     AddStudents
