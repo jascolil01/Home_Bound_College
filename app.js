@@ -3,6 +3,7 @@ const cors = require('cors')
 const logger = require('morgan')
 const CourseRouter = require('./routes/CourseRouter')
 const StudentRouter = require('./routes/StudentRouter')
+const CourseStudentRouter = require('./routes/CourseStudentRouter')
 const app = express()
 
 const PORT = process.env.PORT || 3001
@@ -16,5 +17,6 @@ app.get('/', (req, res) => res.json({ message: 'Server Works' }))
 
 app.use('/courses', CourseRouter)
 app.use('/students', StudentRouter)
+app.use('/joint', CourseStudentRouter)
 
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`))

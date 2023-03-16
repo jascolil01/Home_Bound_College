@@ -1,5 +1,5 @@
 <template>
-  <div v-for="student in students" :key="student.id">
+  <div classname="student-grid" v-for="student in students" :key="student.id" @click="seeStudent(students.id)">
     <h3>{{ student.name }}</h3>
     <h3>{{ student.id }}</h3>
     <button @click="seeStudent(students.id)">Student</button>
