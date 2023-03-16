@@ -12,7 +12,7 @@
 
 
 export default {
-  name: 'MakeCourse',
+  name: 'HomePage',
   components: {
 
   },
