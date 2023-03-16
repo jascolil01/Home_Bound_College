@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       Student.belongsToMany(models.Course, {
         through: 'student_enroll',
         as: 'courses',
+        foreignKey: 'student_id',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
