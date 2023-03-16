@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
      type: DataTypes.STRING,
      allowNull: false
     },
-    grade: {
+    course_code: {
       type: DataTypes.STRING,
       allowNull: false
      },

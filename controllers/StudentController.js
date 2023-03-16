@@ -31,14 +31,14 @@ const getStudentByName = async (req, res) => {
 
 const getStudentByCourse = async (req, res) => {
   try {
-    const cuisine = req.params.cuisine
+    const course = req.params.course
     const student = await Student.findAll({
-      where: {cuisine: cuisine}
+      where: {course: course}
     })
     if (student) {
       return res.status(200).json({ student })
     }
-    return res.status(404).send('Students with the specified Cuisine does not exists')
+    return res.status(404).send('Students with the specified Course does not exists')
   } catch (error) {
     return res.status(500).send(error.message)
   }
