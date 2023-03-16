@@ -4,13 +4,19 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Course extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      // Course.belongsTo(models.student, {
+      //   foreignKey: 'user_id',
+      //   as: 'user',
+      //   onDelete: 'CASCADE',
+      //   onUpdate: 'CASCADE'
+      // })
+      // Course.belongsTo(models.Meal, {
+      //   foreignKey: 'meal_id',
+      //   as: 'courses',
+      //   onDelete: 'CASCADE',
+      //   onUpdate: 'CASCADE'
+      // })
     }
   }
   Course.init({
@@ -25,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Course',
-    modelName: 'courses',
+    tableName: 'courses',
   });
   return Course;
 };
