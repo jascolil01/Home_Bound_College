@@ -14,12 +14,22 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Student.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    courses: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+     },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false
+     },
+    courses: {
+      type: DataTypes.STRING,
+      allowNull: true
+     },
   }, {
     sequelize,
     modelName: 'Student',
+    modelName: 'students',
   });
   return Student;
 };
