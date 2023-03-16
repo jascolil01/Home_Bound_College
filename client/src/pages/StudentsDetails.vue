@@ -1,11 +1,14 @@
 <template>
-  <div></div>
+  <div>
+    <DropDownMenu />
+  </div>
 </template>
 
 <script>
+import DropDownMenu from '@/components/DropDownMenu.vue';
 export default {
   name: 'StudentsDetails',
-  components: {},
+  components: { DropDownMenu },
   data: () => ({}),
   mounted() { },
   methods: {}
