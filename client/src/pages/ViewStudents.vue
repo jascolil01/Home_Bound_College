@@ -10,6 +10,9 @@
 export default {
   name: 'ViewStudents',
   components: {},
+  props: {
+    students: {}
+  },
   data: () => ({
     students: []
   }),
