@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => res.json({ message: 'Server Works' }))
 
-app.use('/courses', CourseRouter)
-app.use('/grades', GradeRouter)
-app.use('/students', StudentRouter)
+// app.use('/courses', CourseRouter)
+// app.use('/grades', GradeRouter)
+// app.use('/students', StudentRouter)
 
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`))
