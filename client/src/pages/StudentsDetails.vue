@@ -1,5 +1,7 @@
 <template>
   <div>
+    {{ studentInfo.name }}
+    {{ studentInfo.id }}
     <DropDownMenu />
   </div>
 </template>
@@ -14,15 +16,20 @@ export default {
   name: 'StudentsDetails',
   components: { DropDownMenu },
   data: () => ({
-    studentInfo: {}
+    studentInfo: {},
+    courseInfo: {}
   }),
-  mounted() { },
+  mounted() {
+    this.getStudentById()
+  },
   methods: {
     async getStudentById() {
       const route = useRoute()
       const id = route.params.student_id
-      const res = await axios.get(`${BASE_URL}student/${id}`)
-      console.log(res)
+      const res = await axios.get(`${BASE_URL}students/${id}`)
+      const data = await axios.get(`${BASE_URL}joint/${id}`)
+      this.studentInfo = res.data.student
+      this.courseInfo = data.data
     }
   }
 }
