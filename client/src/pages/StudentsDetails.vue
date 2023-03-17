@@ -127,6 +127,7 @@ export default {
         grade: parseInt(this.grade)
       }
       await axios.post(`${BASE_URL}joint/enroll`, data)
+      location.reload()
     }
   }
 }
