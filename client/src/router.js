@@ -6,6 +6,7 @@ import StudentsDetails from './pages/StudentsDetails'
 import ReportCard from './components/ReportCard'
 import AddCourses from './components/AddCourses'
 import AddStudents from './components/AddStudents'
+import CoursesDetails from './pages/CoursesDetails'
 
 const routes = [
   { path: '/', component: HomePage, name: 'HomePage' },
@@ -15,6 +16,11 @@ const routes = [
     path: '/students/:student_id',
     component: StudentsDetails,
     name: 'StudentsDetails'
+  },
+  {
+    path: '/courses/:course_id',
+    component: CoursesDetails,
+    name: 'CoursesDetails'
   },
   {
     path: '/students/report_card/:student_id',
