@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <button @click="goHome">Back</button>
+  <button className='back-button' @click="goHome">Back</button>
   <section class="student-card">
     <div
       class="student-grid"
@@ -45,6 +45,17 @@ export default {
 </script>
 
 <style scoped>
+
+.back-button {
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
 .student-card {
   display: flex;
   flex-wrap: wrap;
@@ -64,6 +75,7 @@ export default {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
+
 }
 .student-grid:hover {
   transform: translateY(-10px);
@@ -71,9 +83,10 @@ export default {
 }
 .student-grid h3 {
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 17px;
   font-weight: bold;
   text-align: center;
+  word-wrap: break-word;
 }
 .student-grid button {
   padding: 10px;
@@ -97,5 +110,8 @@ export default {
   .student-grid {
     width: 100%;
   }
+  .student-grid h3 {
+  font-size: 30px;
+}
 }
 </style>
