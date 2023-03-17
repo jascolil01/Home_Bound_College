@@ -96,8 +96,8 @@ export default {
 
 .image-container {
   margin-top: 50px;
-  max-width: 100%;
-  height: auto;
+  width: 500px;
+  height: 500px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
