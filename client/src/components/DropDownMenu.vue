@@ -1,6 +1,7 @@
 <template>
   <select>
-    <option v-for="classe in classes" :key="classe.id">{{ classe.course_code }} || {{ classe.name }}</option>
+    <option v-for="classe in classes" :key="classe.id" @submit="selectCourse(classe.id)">{{ classe.course_code }} || {{
+      classe.name }}</option>
   </select>
 </template>
 
@@ -14,11 +15,15 @@ export default {
   }),
   mounted() {
     this.getCourse()
+    // this.selectCourse()
   },
   methods: {
     async getCourse() {
       const res = await axios.get(`${BASE_URL}courses/`)
       this.classes = res.data
+    },
+    selectCourse(courseId) {
+      this.$emit('selectCourse', courseId)
     }
   }
 }

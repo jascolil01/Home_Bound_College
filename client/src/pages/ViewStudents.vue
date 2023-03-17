@@ -1,8 +1,7 @@
 <template>
   <button className='back-button' @click="goHome">Back</button>
   <section class="student-card">
-    <div class="student-grid" v-for="student in students" :key="student.id" :event="calculateGpa(student.id)"
-      @click="seeStudent(student.id)">
+    <div class="student-grid" v-for="student in students" :key="student.id" @click="seeStudent(student.id)">
       <h3>{{ student.name }}</h3>
       <h3>{{ student.email }}</h3>
     </div>
@@ -35,13 +34,7 @@ export default {
     goHome() {
       this.$router.push('/')
     },
-    async calculateGpa(id) {
-      const data = await axios.get(`${BASE_URL}joint/student/${id}`)
-      // console.log(data.data)
-      const res = data.data.grade?.reduce((acc, currentValue) => acc + currentValue, 0)
-      this.gpa = data.data.grade?.length > 0 ? res / data.data.grade?.length : 0
-      console.log(this.gpa)
-    },
+
   }
 }
 </script>
