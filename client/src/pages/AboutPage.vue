@@ -13,10 +13,7 @@
     <div class="founder-container">
       <div class="founder-card">
         <div class="founder-image">
-          <img
-            src="https://avatars.githubusercontent.com/u/120433758?v=4"
-            alt="Founder 1"
-          />
+          <img src="https://avatars.githubusercontent.com/u/120433758?v=4" alt="Founder 1" />
         </div>
         <h3 class="founder-name">Anthony Harpestad</h3>
         <p class="founder-description">Example</p>
@@ -27,13 +24,12 @@
       </div>
       <div class="founder-card">
         <div class="founder-image">
-          <img
-            src="https://avatars.githubusercontent.com/u/121774406?v=4"
-            alt="Founder 2"
-          />
+          <img src="https://avatars.githubusercontent.com/u/121774406?v=4" alt="Founder 2" />
         </div>
         <h3 class="founder-name">Joshua Ascolillo</h3>
-        <p class="founder-description">Example</p>
+        <p class="founder-description">As a software engineer, I have a proven track record of developing high-quality
+          software applications that meet business needs. Skilled in programming languages such as JavaScript, Python, and
+          React, I am passionate about solving complex problems and delivering innovative solution</p>
         <div class="founder-links">
           <a href="https://www.linkedin.com/in/joshuaascolillo/">LinkedIn</a>
           <a href="https://github.com/jascolil01">GitHub</a>
@@ -43,8 +39,7 @@
         <div class="founder-image">
           <img
             src="https://media.licdn.com/dms/image/D4E03AQHkJqZOQz1aBw/profile-displayphoto-shrink_200_200/0/1678072039564?e=1684368000&v=beta&t=PFqnRJeF82GHiUWBtVahrbrOFdxwNVAvJkGA0HImIAU"
-            alt="Founder 3"
-          />
+            alt="Founder 3" />
         </div>
         <h3 class="founder-name">Eduardo Puerta</h3>
         <p class="founder-description">
@@ -55,9 +50,7 @@
 
         </p>
         <div class="founder-links">
-          <a href="https://www.linkedin.com/in/eduardo-puerta-0a7707265/"
-            >LinkedIn</a
-          >
+          <a href="https://www.linkedin.com/in/eduardo-puerta-0a7707265/">LinkedIn</a>
           <a href="https://github.com/eduardopuerta9">GitHub</a>
         </div>
       </div>
@@ -66,7 +59,7 @@
 </template>
 <script>
 export default {
-    components: {
+  components: {
   }
 }
 </script>
