@@ -1,4 +1,5 @@
 <template>
+  <button @click="goHome">Back</button>
   <section class="student-card">
     <div
       classname="student-grid"
@@ -34,6 +35,9 @@ export default {
     },
     seeStudent(studentId) {
       this.$router.push(`/students/${studentId}`)
+    },
+    goHome() {
+      this.$router.push('/')
     }
   }
 }

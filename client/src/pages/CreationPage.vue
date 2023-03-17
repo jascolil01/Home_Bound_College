@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import MakeCourse from '@/components/MakeCourse.vue';
+import MakeCourse from '@/components/AddCourses.vue';
 import AddStudents from '../components/AddStudents.vue';
 
 export default {
