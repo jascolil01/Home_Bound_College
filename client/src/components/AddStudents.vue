@@ -2,38 +2,30 @@
   <form @submit="makeStudent">
     <div>
       <h2>Enter student email</h2>
-      <input :value="email" @input="handleChangeEmail">
+      <input :value="email" @input="handleChangeEmail" />
     </div>
     <div>
       <h2>Enter student name</h2>
-      <input :value="name" @input="handleChangeName">
+      <input :value="name" @input="handleChangeName" />
     </div>
     <div>
       <button type="submit">click me to add</button>
     </div>
-
   </form>
 </template>
 
-
 <script>
-
-import axios from 'axios';
+import axios from 'axios'
 import { BASE_URL } from '../globals'
-
 
 export default {
   name: 'AddStudents',
-  components: {
-
-  },
+  components: {},
   data: () => ({
     name: '',
     email: ''
   }),
-  mounted() {
-
-  },
+  mounted() {},
   methods: {
     handleChangeEmail(event) {
       console.log(event)
@@ -47,13 +39,11 @@ export default {
       e.preventDefault()
       const data = { name: this.name, email: this.email }
       await axios.post(`${BASE_URL}students/create`, data)
-      this.name = '',
-        this.email = ''
+      ;(this.name = ''), (this.email = '')
+      this.$router.push(`/students`)
     }
   }
 }
-
 </script>
-
 
 <style></style>
