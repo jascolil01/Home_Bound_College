@@ -1,8 +1,22 @@
 <template>
   <div class="container">
     <div class="student-info">
-      <div class="info-heading">{{ studentInfo.name }}</div>
+      <div class="info-heading">Name: {{ studentInfo.name }}</div>
+      <div class="info-heading">Student ID:{{ studentInfo.id }}</div>
       <div class="gpa">GPA: {{ gpa }}</div>
+      <form @submit.prevent="selectCourse()">
+        <h1>Add a course here!</h1>
+        <input placeholder="courseId" type="number" :value="cId" @input="handleChangeCID">
+        <select @change="handleChangeGrade" v-model="grade">
+          <option :value="4">A</option>
+          <option :value="3">B</option>
+          <option :value="2">C</option>
+          <option :value="1">D</option>
+          <option :value="0">F</option>
+        </select>
+
+        <button type="submit">Enroll</button>
+      </form>
       <div>
         <button class="back-button" @click="handleBack()">Go Back</button>
       </div>
@@ -30,15 +44,21 @@
 import axios from 'axios';
 import { BASE_URL } from '@/globals'
 import { useRoute } from 'vue-router';
+
 export default {
   name: 'StudentsDetails',
   components: {},
+  props: {
+    // courseId: null
+  },
   data: () => ({
     studentInfo: {},
     courseId: [],
     courseInfo: [],
     courseGrade: [],
-    gpa: 0
+    gpa: 0,
+    cId: [],
+    grade: []
   }),
   mounted() {
     this.getStudentById()
@@ -92,6 +112,21 @@ export default {
     },
     handleCourseClick(courseId) {
       this.$router.push(`/courses/${courseId}`)
+    },
+    handleChangeCID(event) {
+      this.cId = event.target.value
+    },
+    handleChangeGrade(event) {
+      this.grade = event.target.value
+    },
+    async selectCourse() {
+      console.log(parseInt(this.studentInfo.id))
+      const data = {
+        course_id: this.cId,
+        student_id: parseInt(this.studentInfo.id),
+        grade: parseInt(this.grade)
+      }
+      await axios.post(`${BASE_URL}joint/enroll`, data)
     }
   }
 }
@@ -152,6 +187,7 @@ h1 {
 .column {
   display: flex;
   flex-wrap: wrap;
+  width: 500px;
   /* justify-content: right; */
 
 }
@@ -174,8 +210,12 @@ h1 {
 }
 
 .course-info:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
   cursor: pointer;
+}
+
+h1 {
+  text-align: center;
 }
 
 
