@@ -19,7 +19,7 @@
           />
         </div>
         <h3 class="founder-name">Anthony Harpestad</h3>
-        <p class="founder-description">Example</p>
+        <p class="founder-description">I'm a front-end and back-end developer with a passion for building clean, responsive, and intuitive user interfaces.</p>
         <div class="founder-links">
           <a href="https://www.linkedin.com/in/anthonyharpestad/">LinkedIn</a>
           <a href="https://github.com/Anthony5321">GitHub</a>
