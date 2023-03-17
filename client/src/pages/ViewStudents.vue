@@ -1,14 +1,17 @@
 <template>
-  <div
-    classname="student-grid"
-    v-for="student in students"
-    :key="student.id"
-    @click="seeStudent(student.id)"
-  >
-    <h3>{{ student.name }}</h3>
-    <h3>{{ student.email }}</h3>
-    <button @click="seeStudent(student.id)">Student</button>
-  </div>
+  <button @click="goHome">Back</button>
+  <section class="student-card">
+    <div
+      classname="student-grid"
+      v-for="student in students"
+      :key="student.id"
+      @click="seeStudent(student.id)"
+    >
+      <h3>{{ student.name }}</h3>
+      <h3>{{ student.email }}</h3>
+      <button @click="seeStudent(student.id)">Student Information</button>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -32,6 +35,9 @@ export default {
     },
     seeStudent(studentId) {
       this.$router.push(`/students/${studentId}`)
+    },
+    goHome() {
+      this.$router.push('/')
     }
   }
 }
