@@ -1,7 +1,10 @@
 <template>
   <div>
     {{ studentInfo.name }}
-    {{ studentInfo.id }}
+    {{ studentInfo.id }} {{ courseId }}
+    <div v-for="x in courseInfo" :key="x.id">
+      {{ x.name }}
+    </div>
     <DropDownMenu />
   </div>
 </template>
@@ -17,7 +20,8 @@ export default {
   components: { DropDownMenu },
   data: () => ({
     studentInfo: {},
-    courseInfo: {}
+    courseId: [],
+    courseInfo: []
   }),
   mounted() {
     this.getStudentById()
@@ -27,9 +31,22 @@ export default {
       const route = useRoute()
       const id = route.params.student_id
       const res = await axios.get(`${BASE_URL}students/${id}`)
-      const data = await axios.get(`${BASE_URL}joint/${id}`)
+      const data = await axios.get(`${BASE_URL}joint/student/${id}`)
       this.studentInfo = res.data.student
-      this.courseInfo = data.data
+      let info = data.data.map((x) => (
+        x.id
+      ))
+      this.courseId = info
+      await this.getCourseInfo()
+    },
+    async getCourseInfo() {
+      const courseIds = this.courseId;
+      const courseInfoList = [];
+      for (const courseId of courseIds) {
+        const res = await axios.get(`${BASE_URL}courses/${courseId}`);
+        courseInfoList.push(res.data.course);
+      }
+      this.courseInfo = courseInfoList;
     }
   }
 }
