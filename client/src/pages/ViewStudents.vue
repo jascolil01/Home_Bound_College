@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <button className='back-button' @click="goHome">Back</button>
   <section class="student-card">
     <div class="student-grid" v-for="student in students" :key="student.id" :event="calculateGpa(student.id)"
@@ -13,10 +12,9 @@
 <script>
 import { BASE_URL } from '../globals'
 import axios from 'axios'
-import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'ViewStudents',
-  components: { NavBar },
+  components: {},
   data: () => ({
     students: [],
     gpa: []
@@ -49,7 +47,6 @@ export default {
 </script>
 
 <style scoped>
-
 .back-button {
   background-color: #0077cc;
   color: #fff;
@@ -60,14 +57,17 @@ export default {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
+
 .student-card {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
 }
 
 .student-grid {
   display: flex;
+  background-image: linear-gradient(to right, #1a9cb8, #1aa4b8);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -121,8 +121,9 @@ export default {
   .student-grid {
     width: 100%;
   }
+
   .student-grid h3 {
-  font-size: 30px;
-}
+    font-size: 30px;
+  }
 }
 </style>

@@ -52,6 +52,7 @@
           attack challenges head on. Optimizing productivity and results with
           detailed planning, clear communication, collaboration, and
           organization. Fluent in both English and Spanish.
+
         </p>
         <div class="founder-links">
           <a href="https://www.linkedin.com/in/eduardo-puerta-0a7707265/"
@@ -63,12 +64,9 @@
     </div>
   </div>
 </template>
-
 <script>
-import NavBar from '@/components/NavBar.vue'
 export default {
-  components: {
-    NavBar
+    components: {
   }
 }
 </script>

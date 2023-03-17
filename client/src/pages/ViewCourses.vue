@@ -1,27 +1,18 @@
 <template>
-  <NavBar />
   <button className='back-button' @click="goHome">Back</button>
   <div class="course-card">
-    <div
-      class="course-grid"
-      v-for="course in courses"
-      :key="course.id"
-      @click="seeCourse(course.id)"
-    >
+    <div class="course-grid" v-for="course in courses" :key="course.id" @click="seeCourse(course.id)">
       <h3>{{ course.name }}</h3>
       <h3>{{ course.course_code }}</h3>
     </div>
   </div>
 </template>
-
 <script>
 import { BASE_URL } from '../globals'
 import axios from 'axios'
-import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'ViewCourse',
-  components: {NavBar},
-
+  components: {},
   data: () => ({
     courses: []
   }),
@@ -63,6 +54,7 @@ export default {
 .course-grid {
   display: flex;
   flex-direction: column;
+  background-image: linear-gradient(to right, #1a9cb8, #1aa4b8);
   justify-content: center;
   align-items: center;
   width: 250px;
@@ -109,13 +101,15 @@ export default {
   outline: none;
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0077b6;
 }
+
 @media only screen and (max-width: 768px) {
   .course-grid {
     width: 100%;
   }
+
   .course-grid h3 {
-  font-size: 30px;
-}
+    font-size: 30px;
+  }
 }
 </style>
  

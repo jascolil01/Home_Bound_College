@@ -1,6 +1,5 @@
 <template>
   <div class="course-details">
-    <NavBar />
     <h1>{{ courseInfo.name }}</h1>
     <p>Course Code: {{ courseInfo.course_code }}</p>
     <button @click="handleBack()">Go Back</button>
@@ -19,11 +18,9 @@
 import axios from 'axios';
 import { BASE_URL } from '@/globals'
 import { useRoute } from 'vue-router';
-import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'CoursesDetails',
   components: {
-    NavBar
   },
   data: () => ({
     courseInfo: {},
@@ -40,8 +37,9 @@ export default {
       const res = await axios.get(`${BASE_URL}courses/${id}`)
       const data = await axios.get(`${BASE_URL}joint/course/${id}`)
       this.courseInfo = res.data.course
+      console.log(data.data);
       let info = data.data.map((student) => ({
-        id: student.id,
+        id: student.student_id,
         name: student.name,
         email: student.email,
         grade: this.convertGrade(student.grade)
