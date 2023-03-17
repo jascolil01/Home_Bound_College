@@ -2,12 +2,8 @@
   <NavBar />
   <button @click="goHome">Back</button>
   <section class="student-card">
-    <div
-      class="student-grid"
-      v-for="student in students"
-      :key="student.id"
-      @click="seeStudent(student.id)"
-    >
+    <div class="student-grid" v-for="student in students" :key="student.id" :event="calculateGpa(student.id)"
+      @click="seeStudent(student.id)">
       <h3>{{ student.name }}</h3>
       <h3>{{ student.email }}</h3>
     </div>
@@ -20,9 +16,10 @@ import axios from 'axios'
 import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'ViewStudents',
-  components: {NavBar},
+  components: { NavBar },
   data: () => ({
-    students: []
+    students: [],
+    gpa: []
   }),
 
   mounted() {
@@ -39,7 +36,14 @@ export default {
     },
     goHome() {
       this.$router.push('/')
-    }
+    },
+    async calculateGpa(id) {
+      const data = await axios.get(`${BASE_URL}joint/student/${id}`)
+      // console.log(data.data)
+      const res = data.data.grade?.reduce((acc, currentValue) => acc + currentValue, 0)
+      this.gpa = data.data.grade?.length > 0 ? res / data.data.grade?.length : 0
+      console.log(this.gpa)
+    },
   }
 }
 </script>
@@ -50,6 +54,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .student-grid {
   display: flex;
   flex-direction: column;
@@ -65,16 +70,19 @@ export default {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .student-grid:hover {
   transform: translateY(-10px);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
+
 .student-grid h3 {
   margin-bottom: 10px;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
 }
+
 .student-grid button {
   padding: 10px;
   border: none;
@@ -86,13 +94,16 @@ export default {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .student-grid button:hover {
   background-color: #023e8a;
 }
+
 .student-grid button:focus {
   outline: none;
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0077b6;
 }
+
 @media only screen and (max-width: 768px) {
   .student-grid {
     width: 100%;
