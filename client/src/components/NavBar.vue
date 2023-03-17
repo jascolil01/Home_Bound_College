@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <li v-for="link in links" :key="link.path">
-        <router-link :to="link.path" :active-class="activeClass" style="color: #00cccc; font-size: 20px;">{{ link.text }}</router-link>
+        <router-link :to="link.path" :active-class="activeClass" >{{ link.text }}</router-link>
       </li>
     </ul>
   </nav>
@@ -27,7 +27,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 nav {
   display: flex;
   flex-direction: column;
@@ -61,4 +61,5 @@ nav ul li a:hover {
 .active {
   font-weight: bold;
 }
+
 </style>

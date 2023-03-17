@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <button className='back-button' @click="goHome">Back</button>
   <div class="course-card">
     <div
@@ -17,10 +16,9 @@
 <script>
 import { BASE_URL } from '../globals'
 import axios from 'axios'
-import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'ViewCourse',
-  components: {NavBar},
+  components: {},
 
   data: () => ({
     courses: []

@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <button className='back-button' @click="goHome">Back</button>
   <section class="student-card">
     <div class="student-grid" v-for="student in students" :key="student.id" :event="calculateGpa(student.id)"
@@ -13,10 +12,9 @@
 <script>
 import { BASE_URL } from '../globals'
 import axios from 'axios'
-import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'ViewStudents',
-  components: { NavBar },
+  components: {},
   data: () => ({
     students: [],
     gpa: []
