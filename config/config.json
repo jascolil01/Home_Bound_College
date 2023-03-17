@@ -8,14 +8,14 @@
   },
   "test": {
     "username": "Alejandro",
-    "password": "1234",
+    "password": "Colombia123",
     "database": "Home_Bound_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "Alejandro",
-    "password": "1234",
+    "password": "Colombia123",
     "database": "Home_Bound_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
