@@ -10,8 +10,9 @@
     </div>
     <div class="column">
       <div class="course-grade" v-for="course in courseGrade" :key="course">
-        {{ course }}
+        {{ convertGrade(course) }}
       </div>
+      <div>GPA: {{ gpa }}</div>
     </div>
     <DropDownMenu />
   </div>
@@ -30,7 +31,8 @@ export default {
     studentInfo: {},
     courseId: [],
     courseInfo: [],
-    courseGrade: []
+    courseGrade: [],
+    gpa: 0
   }),
   mounted() {
     this.getStudentById()
@@ -50,16 +52,24 @@ export default {
       ))
       this.courseId = info
       this.courseGrade = grade
-      await this.getCourseInfo()
+      await this.calculateGpa()
     },
-    async getCourseInfo() {
-      const courseIds = this.courseId;
-      const courseInfoList = [];
-      for (const courseId of courseIds) {
-        const res = await axios.get(`${BASE_URL}courses/${courseId}`);
-        courseInfoList.push(res.data.course);
+    async calculateGpa() {
+      const res = this.courseGrade?.reduce((acc, currentValue) => acc + currentValue, 0)
+      this.gpa = this.courseGrade?.length > 0 ? res / this.courseGrade?.length : 0
+    },
+    convertGrade(grade) {
+      if (grade >= 4) {
+        return 'A'
+      } else if (grade >= 3) {
+        return 'B'
+      } else if (grade >= 2) {
+        return 'C'
+      } else if (grade >= 1) {
+        return 'D'
+      } else {
+        return 'F'
       }
-      this.courseInfo = courseInfoList;
     },
     handleBack() {
       this.$router.push('/students')
@@ -78,7 +88,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width:  50%;
 }
 
 .course-info,
