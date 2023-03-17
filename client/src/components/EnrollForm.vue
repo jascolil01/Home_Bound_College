@@ -1,7 +1,7 @@
 <template>
   <div class="enroll-form">
     <h2>Enroll in {{ courseInfo.name }}</h2>
-    <form @submit.prevent="handleSubmit">
+    <form @submit="handleSubmit">
       <label>
         Student ID:
         <input type="text" v-model="studentId" required />
