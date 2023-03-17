@@ -6,7 +6,7 @@ import StudentsDetails from './pages/StudentsDetails'
 import ReportCard from './components/ReportCard'
 import AddCourses from './components/AddCourses'
 import AddStudents from './components/AddStudents'
-import CoursesDetails from './components/CoursesDetails'
+import CoursesDetails from './pages/CoursesDetails'
 
 const routes = [
   { path: '/', component: HomePage, name: 'HomePage' },

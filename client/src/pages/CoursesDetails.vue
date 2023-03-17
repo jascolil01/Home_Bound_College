@@ -1,23 +1,20 @@
 <template>
     <div>
       {{ courseInfo.name }}
-      {{ courseInfo.id }} {{ studentId }}
-      <div v-for="x in studentInfo" :key="x.id">
-        {{ x.name }}
+      {{ courseInfo.id }} 
+      <div v-for="student in studentInfo" :key="student.id">
+        {{ student.name }}
       </div>
-      <DropDownMenu />
     </div>
   </template>
   
   <script>
-  import DropDownMenu from '@/components/DropDownMenu.vue';
   import axios from 'axios';
   import { BASE_URL } from '@/globals'
   import { useRoute } from 'vue-router';
   
   export default {
     name: 'CoursesDetails',
-    components: { DropDownMenu },
     data: () => ({
       courseInfo: {},
       studentId: [],
@@ -33,8 +30,8 @@
         const res = await axios.get(`${BASE_URL}courses/${id}`)
         const data = await axios.get(`${BASE_URL}joint/course/${id}`)
         this.courseInfo = res.data.course
-        let info = data.data.map((x) => (
-          x.id
+        let info = data.data.map((student) => (
+          student.id
         ))
         this.studentId = info
         await this.getStudentInfo()
