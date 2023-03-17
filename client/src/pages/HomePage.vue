@@ -44,7 +44,6 @@ export default {
 </script>
 
 <style scoped>
-
 .home-page {
   display: flex;
   flex-direction: column;
