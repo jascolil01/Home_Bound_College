@@ -12,16 +12,17 @@
       </div>
     </div>
     <p v-else>No students are currently enrolled in this course.</p>
+    <EnrollForm />
   </div>
 </template>
 <script>
 import axios from 'axios';
 import { BASE_URL } from '@/globals'
 import { useRoute } from 'vue-router';
+import EnrollForm from '../components/EnrollForm.vue'
 export default {
   name: 'CoursesDetails',
-  components: {
-  },
+  components: { EnrollForm },
   data: () => ({
     courseInfo: {},
     studentId: [],
