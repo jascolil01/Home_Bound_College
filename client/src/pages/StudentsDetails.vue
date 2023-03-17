@@ -4,11 +4,13 @@
     {{ studentInfo.id }}
     <button @click="handleBack()">Go Back</button>
     <div class="column">
+      <h1>Class</h1>
       <div class="course-info" v-for="x in courseInfo" :key="x.id">
         {{ x.name }}
       </div>
     </div>
     <div class="column">
+      <h1>Grade</h1>
       <div class="course-grade" v-for="x in courseGrade" :key="x">
         {{ x }}
       </div>
