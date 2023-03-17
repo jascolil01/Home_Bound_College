@@ -7,11 +7,13 @@ import ReportCard from './components/ReportCard'
 import AddCourses from './components/AddCourses'
 import AddStudents from './components/AddStudents'
 import CoursesDetails from './pages/CoursesDetails'
+import AboutPage from './pages/AboutPage'
 
 const routes = [
   { path: '/', component: HomePage, name: 'HomePage' },
   { path: '/students', component: ViewStudents, name: 'ViewStudents' },
   { path: '/courses', component: ViewCourses, name: 'ViewCourses' },
+  { path: '/about', component: AboutPage, name: 'AboutPage' },
   {
     path: '/students/:student_id',
     component: StudentsDetails,
