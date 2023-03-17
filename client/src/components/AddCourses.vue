@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <form class="add-courses-form" @submit="makeStudent">
     <div>
       <h2 class="form-heading">Enter course name</h2>
@@ -18,11 +17,9 @@
 <script>
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import NavBar from './NavBar.vue'
 export default {
   name: 'AddCourses',
   components: {
-    NavBar
   },
   data: () => ({
     name: '',

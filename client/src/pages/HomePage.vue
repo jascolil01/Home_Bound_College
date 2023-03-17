@@ -1,6 +1,5 @@
 <template>
   <div class="home-page">
-    <NavBar />
     <div class="image-container">
       <img src="../assets/homepage-image.jpg" alt="College Campus" />
     </div>
@@ -15,12 +14,10 @@
   </div>
 </template>
 <script>
-import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    NavBar
   },
   data: () => ({
   }),
