@@ -30,6 +30,9 @@ import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'StudentsDetails',
   components: { DropDownMenu, NavBar },
+  props: {
+    // gpaTotal: this.gpa
+  },
   data: () => ({
     studentInfo: {},
     courseId: [],
