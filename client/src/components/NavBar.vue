@@ -35,7 +35,10 @@ nav {
   margin: 0;
   color: #fff;
   margin-bottom: 3rem;
+  background-image: linear-gradient(#1973d1, #135cc5);
+  border-radius: 10px;
 }
+
 
 nav ul {
   list-style-type: none;
@@ -51,11 +54,15 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.5s ease-in-out;
+  color: rgb(253, 253, 209);
+  font-size: 20px;
+  transition: .5s;
 }
 
 nav ul li a:hover {
   color: #f0f0f0;
+  font-size: 40px;
 }
 
 .active {

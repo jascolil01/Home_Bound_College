@@ -1,5 +1,6 @@
 <template>
-  <NavBar />
+  <h1>Home Bound College</h1>
+    <NavBar />
   <router-view></router-view>
 </template>
 
@@ -20,7 +21,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
+}
+
+body {
+  background-image: linear-gradient(to left, #6da1fc, #23d3ff);
 }
 </style>
