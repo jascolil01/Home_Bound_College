@@ -1,15 +1,9 @@
 <template>
   <button @click="goHome">Back</button>
   <section class="student-card">
-    <div
-      classname="student-grid"
-      v-for="student in students"
-      :key="student.id"
-      @click="seeStudent(student.id)"
-    >
+    <div class="student-grid" v-for="student in students" :key="student.id" @click="seeStudent(student.id)">
       <h3>{{ student.name }}</h3>
       <h3>{{ student.email }}</h3>
-      <button @click="seeStudent(student.id)">Student Information</button>
     </div>
   </section>
 </template>
@@ -20,14 +14,17 @@ import axios from 'axios'
 
 export default {
   name: 'ViewStudents',
-  components: {},
+  components: {
+  },
 
   data: () => ({
     students: []
   }),
+
   mounted() {
     this.getStudents()
   },
+
   methods: {
     async getStudents() {
       const res = await axios.get(`${BASE_URL}students`)
@@ -43,4 +40,24 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.student-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.student-grid {
+  border: 1px solid black;
+  width: 23%;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .student-grid {
+    width: 45%;
+  }
+}
+</style>
