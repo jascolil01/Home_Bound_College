@@ -1,14 +1,16 @@
 <template>
-  <div
-    classname="student-grid"
-    v-for="student in students"
-    :key="student.id"
-    @click="seeStudent(student.id)"
-  >
-    <h3>{{ student.name }}</h3>
-    <h3>{{ student.email }}</h3>
-    <button @click="seeStudent(student.id)">Student</button>
-  </div>
+  <section class="student-card">
+    <div
+      classname="student-grid"
+      v-for="student in students"
+      :key="student.id"
+      @click="seeStudent(student.id)"
+    >
+      <h3>{{ student.name }}</h3>
+      <h3>{{ student.email }}</h3>
+      <button @click="seeStudent(student.id)">Student Information</button>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -37,4 +39,19 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.student-card {
+  border-color: #1b1b1b;
+  max-width: 300px;
+  max-height: 380px;
+  border-radius: 4px;
+  background-color: #1b1b1b;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 2em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-gap: 1em;
+  justify-content: center;
+}
+</style>
