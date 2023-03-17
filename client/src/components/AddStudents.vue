@@ -8,7 +8,6 @@
       <h2>Enter student name</h2>
       <input :value="name" @input="handleChangeName">
     </div>
-
     <div>
       <button type="submit">click me to add</button>
     </div>

@@ -4,13 +4,13 @@
     {{ studentInfo.id }}
     <button @click="handleBack()">Go Back</button>
     <div class="column">
-      <div class="course-info" v-for="x in courseInfo" :key="x.id">
-        {{ x.name }}
+      <div class="course-info" v-for="course in courseInfo" :key="course.id">
+        {{ course.name }}
       </div>
     </div>
     <div class="column">
-      <div class="course-grade" v-for="x in courseGrade" :key="x">
-        {{ x }}
+      <div class="course-grade" v-for="course in courseGrade" :key="course">
+        {{ course }}
       </div>
     </div>
     <DropDownMenu />
@@ -42,11 +42,11 @@ export default {
       const res = await axios.get(`${BASE_URL}students/${id}`)
       const data = await axios.get(`${BASE_URL}joint/student/${id}`)
       this.studentInfo = res.data.student
-      let info = data.data.map((x) => (
-        x.course_id
+      let info = data.data.map((course) => (
+        course.course_id
       ))
-      let grade = data.data.map((x) => (
-        x.grade
+      let grade = data.data.map((course) => (
+        course.grade
       ))
       this.courseId = info
       this.courseGrade = grade
