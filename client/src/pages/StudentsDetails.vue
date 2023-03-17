@@ -1,9 +1,16 @@
 <template>
-  <div>
+  <div class="container">
     {{ studentInfo.name }}
-    {{ studentInfo.id }} {{ courseId }}
-    <div v-for="x in courseInfo" :key="x.id">
-      {{ x.name }}
+    {{ studentInfo.id }}
+    <div class="column">
+      <div class="course-info" v-for="x in courseInfo" :key="x.id">
+        {{ x.name }}
+      </div>
+    </div>
+    <div class="column">
+      <div class="course-grade" v-for="x in courseGrade" :key="x">
+        {{ x }}
+      </div>
     </div>
     <DropDownMenu />
   </div>
@@ -21,7 +28,8 @@ export default {
   data: () => ({
     studentInfo: {},
     courseId: [],
-    courseInfo: []
+    courseInfo: [],
+    courseGrade: []
   }),
   mounted() {
     this.getStudentById()
@@ -34,9 +42,13 @@ export default {
       const data = await axios.get(`${BASE_URL}joint/student/${id}`)
       this.studentInfo = res.data.student
       let info = data.data.map((x) => (
-        x.id
+        x.course_id
+      ))
+      let grade = data.data.map((x) => (
+        x.grade
       ))
       this.courseId = info
+      this.courseGrade = grade
       await this.getCourseInfo()
     },
     async getCourseInfo() {
@@ -52,4 +64,23 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.course-info,
+.course-grade {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+}
+</style>
