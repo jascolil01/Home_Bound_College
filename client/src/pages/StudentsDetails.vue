@@ -27,6 +27,9 @@ import { useRoute } from 'vue-router';
 export default {
   name: 'StudentsDetails',
   components: { DropDownMenu },
+  props: {
+    // gpaTotal: this.gpa
+  },
   data: () => ({
     studentInfo: {},
     courseId: [],
@@ -88,7 +91,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width:  50%;
+  width: 50%;
 }
 
 .course-info,
