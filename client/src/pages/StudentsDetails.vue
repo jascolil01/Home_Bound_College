@@ -2,6 +2,7 @@
   <div class="container">
     {{ studentInfo.name }}
     {{ studentInfo.id }}
+    <button @click="handleBack()">Go Back</button>
     <div class="column">
       <div class="course-info" v-for="course in courseInfo" :key="course.id">
         {{ course.name }}
@@ -59,6 +60,9 @@ export default {
         courseInfoList.push(res.data.course);
       }
       this.courseInfo = courseInfoList;
+    },
+    handleBack() {
+      this.$router.push('/students')
     }
   }
 }
