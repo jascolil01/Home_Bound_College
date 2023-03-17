@@ -3,36 +3,38 @@
   <div class="container">
     <div class="student-info">
       <div class="info-heading">{{ studentInfo.name }}</div>
-      <div class="info-id">{{ studentInfo.id }}</div>
-      <button class="back-button" @click="handleBack()">Go Back</button>
-    </div>
-    <div class="column">
-      <div class="course-info" v-for="course in courseInfo" :key="course.id">
-        {{ course.name }}
-      </div>
-    </div>
-    <div class="column">
-      <div class="course-grade" v-for="course in courseGrade" :key="course">
-        {{ convertGrade(course) }}
-      </div>
       <div class="gpa">GPA: {{ gpa }}</div>
+      <div>
+        <button class="back-button" @click="handleBack()">Go Back</button>
+      </div>
     </div>
-    <DropDownMenu />
+    <div>
+      <h1 class="class-tag">Class</h1>
+      <div class="column">
+        <div class="course-info" v-for="course in courseInfo" :key="course.id">
+          {{ course.name }}
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1>Grade</h1>
+      <div class="column">
+        <div class="course-grade" v-for="course in courseGrade" :key="course">
+          {{ convertGrade(course) }}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import DropDownMenu from '@/components/DropDownMenu.vue';
 import axios from 'axios';
 import { BASE_URL } from '@/globals'
 import { useRoute } from 'vue-router';
 import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'StudentsDetails',
-  components: { DropDownMenu, NavBar },
-  props: {
-    // gpaTotal: this.gpa
-  },
+  components: { NavBar },
   data: () => ({
     studentInfo: {},
     courseId: [],
@@ -59,10 +61,20 @@ export default {
       this.courseId = info
       this.courseGrade = grade
       await this.calculateGpa()
+      await this.getCourseInfo()
     },
     async calculateGpa() {
       const res = this.courseGrade?.reduce((acc, currentValue) => acc + currentValue, 0)
       this.gpa = this.courseGrade?.length > 0 ? res / this.courseGrade?.length : 0
+    },
+    async getCourseInfo() {
+      const courseIds = this.courseId;
+      const courseInfoList = [];
+      for (const courseId of courseIds) {
+        const res = await axios.get(`${BASE_URL}courses/${courseId}`);
+        courseInfoList.push(res.data.course);
+      }
+      this.courseInfo = courseInfoList;
     },
     convertGrade(grade) {
       if (grade >= 4) {
@@ -96,8 +108,9 @@ export default {
 .student-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-self: center;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .info-heading {
@@ -106,6 +119,12 @@ export default {
   margin-bottom: 10px;
   color: #333;
 }
+
+h1 {
+  display: flex;
+}
+
+
 
 .info-id {
   font-size: 24px;
@@ -131,24 +150,35 @@ export default {
 
 .column {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
+  flex-wrap: wrap;
+  /* justify-content: right; */
+
 }
 
 .course-info,
 .course-grade {
   display: flex;
+  border-bottom: 10px solid #009ace;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 60%;
   height: 60px;
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
-  background-color: #f8f8f8;
+  background-image: linear-gradient(to right, #adf7f2, #15aaff);
+  border-radius: 20px;
   color: #333;
+}
+
+
+
+.column>.course-grade {
+  padding: 5px
+}
+
+.course-info {
+  margin-bottom: 30px;
 }
 
 .course-grade.A {

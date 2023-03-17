@@ -2,7 +2,12 @@
   <nav>
     <ul>
       <li v-for="link in links" :key="link.path">
-        <router-link :to="link.path" :active-class="activeClass" style="color: #00cccc; font-size: 20px;">{{ link.text }}</router-link>
+        <router-link
+          :to="link.path"
+          :active-class="activeClass"
+          style="color: #00cccc; font-size: 20px"
+          >{{ link.text }}</router-link
+        >
       </li>
     </ul>
   </nav>
@@ -19,12 +24,12 @@ export default {
         { path: '/courses', text: 'View Courses' },
         { path: '/add_student', text: 'Add Students' },
         { path: '/make_course', text: 'Add Course' },
-        { path: '/about', text: 'About' },
+        { path: '/about', text: 'About' }
       ],
-      activeClass: 'active',
-    };
-  },
-};
+      activeClass: 'active'
+    }
+  }
+}
 </script>
 
 <style>
