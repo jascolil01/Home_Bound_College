@@ -1,8 +1,11 @@
 <template>
+  <NavBar />
   <div class="container">
-    {{ studentInfo.name }}
-    {{ studentInfo.id }}
-    <button @click="handleBack()">Go Back</button>
+    <div class="student-info">
+      <div class="info-heading">{{ studentInfo.name }}</div>
+      <div class="info-id">{{ studentInfo.id }}</div>
+      <button class="back-button" @click="handleBack()">Go Back</button>
+    </div>
     <div class="column">
       <div class="course-info" v-for="course in courseInfo" :key="course.id">
         {{ course.name }}
@@ -12,7 +15,7 @@
       <div class="course-grade" v-for="course in courseGrade" :key="course">
         {{ convertGrade(course) }}
       </div>
-      <div>GPA: {{ gpa }}</div>
+      <div class="gpa">GPA: {{ gpa }}</div>
     </div>
     <DropDownMenu />
   </div>
@@ -23,10 +26,10 @@ import DropDownMenu from '@/components/DropDownMenu.vue';
 import axios from 'axios';
 import { BASE_URL } from '@/globals'
 import { useRoute } from 'vue-router';
-
+import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'StudentsDetails',
-  components: { DropDownMenu },
+  components: { DropDownMenu, NavBar },
   data: () => ({
     studentInfo: {},
     courseId: [],
@@ -78,23 +81,97 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.student-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.info-heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info-id {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.back-button {
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  background-color: #005fa3;
 }
 
 .column {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width:  50%;
+  width: 50%;
 }
 
 .course-info,
 .course-grade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 50px;
-  margin-bottom: 10px;
+  height: 60px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.course-grade.A {
+  color: #00b300;
+}
+
+.course-grade.B {
+  color: #0099cc;
+}
+
+.course-grade.C {
+  color: #ffcc00;
+}
+
+.course-grade.D {
+  color: #ff9900;
+}
+
+.course-grade.F {
+  color: #ff3300;
+}
+
+.gpa {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #0077cc;
 }
 </style>
