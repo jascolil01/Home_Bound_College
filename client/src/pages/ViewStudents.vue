@@ -39,19 +39,4 @@ export default {
 }
 </script>
 
-<style>
-.student-card {
-  border-color: #1b1b1b;
-  max-width: 300px;
-  max-height: 380px;
-  border-radius: 4px;
-  background-color: #1b1b1b;
-  cursor: pointer;
-  transition: all 0.2s;
-  padding: 2em 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
-  grid-gap: 1em;
-  justify-content: center;
-}
-</style>
+<style></style>
