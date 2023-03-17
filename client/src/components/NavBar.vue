@@ -7,7 +7,6 @@
     </ul>
   </nav>
 </template>
-
 <script>
 export default {
   name: 'NavBar',
@@ -19,12 +18,12 @@ export default {
         { path: '/courses', text: 'View Courses' },
         { path: '/add_student', text: 'Add Students' },
         { path: '/make_course', text: 'Add Course' },
-        { path: '/about', text: 'About' },
+        { path: '/about', text: 'About' }
       ],
-      activeClass: 'active',
-    };
-  },
-};
+      activeClass: 'active'
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -70,3 +69,4 @@ nav ul li a:hover {
 }
 
 </style>
+
