@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <div class="container">
     <div class="student-info">
       <div class="info-heading">{{ studentInfo.name }}</div>
@@ -11,7 +10,7 @@
     <div>
       <h1 class="class-tag">Class</h1>
       <div class="column">
-        <div class="course-info" v-for="course in courseInfo" :key="course.id">
+        <div class="course-info" v-for="course in courseInfo" :key="course.id" @click="handleCourseClick(course.id)">
           {{ course.name }}
         </div>
       </div>
@@ -31,10 +30,9 @@
 import axios from 'axios';
 import { BASE_URL } from '@/globals'
 import { useRoute } from 'vue-router';
-import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'StudentsDetails',
-  components: { NavBar },
+  components: {},
   data: () => ({
     studentInfo: {},
     courseId: [],
@@ -91,6 +89,9 @@ export default {
     },
     handleBack() {
       this.$router.push('/students')
+    },
+    handleCourseClick(courseId) {
+      this.$router.push(`/courses/${courseId}`)
     }
   }
 }
@@ -169,6 +170,12 @@ h1 {
   background-image: linear-gradient(to right, #adf7f2, #15aaff);
   border-radius: 20px;
   color: #333;
+  transition: all .5s ease-in-out;
+}
+
+.course-info:hover {
+  transform: scale(1.1); 
+  cursor: pointer;
 }
 
 

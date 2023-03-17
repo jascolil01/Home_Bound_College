@@ -1,6 +1,5 @@
 <template>
     <div class="about-page">
-        <NavBar />
         <h1 class="heading">About Our App</h1>
         <p class="description">
             Our app is a powerful tool for managing student enrollment in courses. With our app, you can easily add students
@@ -53,10 +52,8 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
 export default {
     components: {
-    NavBar
   }
 }
 </script>

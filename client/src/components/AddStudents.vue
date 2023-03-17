@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <form @submit="makeStudent" class="add-student-form">
     <div>
       <h2 class="form-heading">Enter student email</h2>
@@ -18,10 +17,9 @@
 <script>
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import NavBar from './NavBar.vue'
 export default {
   name: 'AddStudents',
-  components: {NavBar},
+  components: {},
   data: () => ({
     name: '',
     email: ''
@@ -47,7 +45,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .add-student-form {
   display: flex;
   flex-direction: column;

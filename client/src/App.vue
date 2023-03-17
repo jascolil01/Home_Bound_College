@@ -1,15 +1,16 @@
 <template>
   <h1>Home Bound College</h1>
+    <NavBar />
   <router-view></router-view>
 </template>
 
 <script>
-
+import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: 'App',
   components: {
-
+    NavBar
   }
 }
 </script>
