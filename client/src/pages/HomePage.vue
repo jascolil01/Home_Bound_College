@@ -107,6 +107,7 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
+
   .heading {
     font-size: 36px;
   }
@@ -144,5 +145,20 @@ export default {
 
   top: 0;
   left: 0;
+}
+
+@media only screen and (max-width: 425px) {
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .btn {
+    width: 250px;
+    height: fit-content;
+    font-size: larger;
+  }
 }
 </style>
