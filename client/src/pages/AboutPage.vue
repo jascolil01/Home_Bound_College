@@ -38,7 +38,7 @@
       <div class="founder-card">
         <div class="founder-image">
           <img
-            src="https://media.licdn.com/dms/image/D4E03AQHkJqZOQz1aBw/profile-displayphoto-shrink_200_200/0/1678072039564?e=1684368000&v=beta&t=PFqnRJeF82GHiUWBtVahrbrOFdxwNVAvJkGA0HImIAU"
+            src="https://avatars.githubusercontent.com/u/122240360?v=4"
             alt="Founder 3" />
         </div>
         <h3 class="founder-name">Eduardo Puerta</h3>
