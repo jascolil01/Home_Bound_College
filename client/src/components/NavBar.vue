@@ -155,7 +155,7 @@ nav.show-nav li:nth-child(6) {
   nav ul {
     align-items: center;
     margin-bottom: 0;
-    opacity: 0;
+    height: 0;
   }
 
   nav li {
